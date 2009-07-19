@@ -1,0 +1,12 @@
+--- truecrypt-6.2a-source.orig/Makefile 
++++ truecrypt-6.2a-source/Makefile 
+@@ -24,7 +24,7 @@
+ 
+ #------ Build configuration ------
+ 
+-export APPNAME := truecrypt
++export APPNAME := realcrypt
+ export BASE_DIR := $(CURDIR)
+ export BUILD_INC := $(BASE_DIR)/Build/Include
+ 
+
