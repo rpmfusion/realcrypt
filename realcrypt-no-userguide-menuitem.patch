@@ -1,0 +1,171 @@
+--- truecrypt-6.2a-source.orig/Main/Forms/Forms.h	2009-06-15 06:15:04.000000000 -0400
++++ truecrypt-6.2a-source/Main/Forms/Forms.h	2009-07-10 13:05:11.997178582 -0400
+@@ -124,7 +124,6 @@
+ 			virtual void OnHotkeysMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+ 			virtual void OnSecurityTokenPreferencesMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+ 			virtual void OnPreferencesMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+-			virtual void OnUserGuideMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+ 			virtual void OnOnlineHelpMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+ 			virtual void OnBeginnersTutorialMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+ 			virtual void OnFaqMenuItemSelected( wxCommandEvent& event ){ event.Skip(); }
+@@ -152,7 +151,7 @@
+ 			
+ 		
+ 		public:
+-			MainFrameBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("TrueCrypt"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,496 ), long style = wxCAPTION|wxCLOSE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxTAB_TRAVERSAL );
++			MainFrameBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("RealCrypt"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,496 ), long style = wxCAPTION|wxCLOSE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxTAB_TRAVERSAL );
+ 			~MainFrameBase();
+ 		
+ 	};
+@@ -312,7 +311,7 @@
+ 			
+ 		
+ 		public:
+-			EncryptionTestDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("TrueCrypt - Test Vectors"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
++			EncryptionTestDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("RealCrypt - Test Vectors"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+ 			~EncryptionTestDialogBase();
+ 		
+ 	};
+@@ -423,7 +422,7 @@
+ 			wxTextCtrl* LegalNoticesTextCtrl;
+ 		
+ 		public:
+-			LegalNoticesDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("TrueCrypt - Legal Notices"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
++			LegalNoticesDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("RealCrypt - Legal Notices"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+ 			~LegalNoticesDialogBase();
+ 		
+ 	};
+@@ -474,7 +473,7 @@
+ 			
+ 		
+ 		public:
+-			MountOptionsDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Enter TrueCrypt Volume Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
++			MountOptionsDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Enter RealCrypt Volume Password"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+ 			~MountOptionsDialogBase();
+ 		
+ 	};
+@@ -620,7 +619,7 @@
+ 			
+ 		
+ 		public:
+-			RandomPoolEnrichmentDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("TrueCrypt - Random Pool Enrichment"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
++			RandomPoolEnrichmentDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("RealCrypt - Random Pool Enrichment"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+ 			~RandomPoolEnrichmentDialogBase();
+ 		
+ 	};
+--- truecrypt-6.2a-source.orig/Main/Forms/Forms.cpp	2009-06-15 06:15:04.000000000 -0400
++++ truecrypt-6.2a-source/Main/Forms/Forms.cpp	2009-07-10 13:04:30.368178609 -0400
+@@ -157,9 +157,6 @@
+ 	MainMenuBar->Append( SettingsMenu, _("Settin&gs") );
+ 	
+ 	HelpMenu = new wxMenu();
+-	wxMenuItem* UserGuideMenuItem;
+-	UserGuideMenuItem = new wxMenuItem( HelpMenu, wxID_HELP, wxString( _("User's Guide") ) , wxEmptyString, wxITEM_NORMAL );
+-	HelpMenu->Append( UserGuideMenuItem );
+ 	
+ 	wxMenuItem* OnlineHelpMenuItem;
+ 	OnlineHelpMenuItem = new wxMenuItem( HelpMenu, wxID_ANY, wxString( _("Online Help") ) , wxEmptyString, wxITEM_NORMAL );
+@@ -176,7 +173,7 @@
+ 	HelpMenu->AppendSeparator();
+ 	
+ 	wxMenuItem* WebsiteMenuItem;
+-	WebsiteMenuItem = new wxMenuItem( HelpMenu, wxID_ANY, wxString( _("TrueCrypt Website") ) , wxEmptyString, wxITEM_NORMAL );
++	WebsiteMenuItem = new wxMenuItem( HelpMenu, wxID_ANY, wxString( _("RealCrypt Website") ) , wxEmptyString, wxITEM_NORMAL );
+ 	HelpMenu->Append( WebsiteMenuItem );
+ 	
+ 	wxMenuItem* DownloadsMenuItem;
+@@ -434,7 +431,6 @@
+ 	this->Connect( DefaultKeyfilesMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnDefaultKeyfilesMenuItemSelected ) );
+ 	this->Connect( SecurityTokenPreferencesMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnSecurityTokenPreferencesMenuItemSelected ) );
+ 	this->Connect( PreferencesMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnPreferencesMenuItemSelected ) );
+-	this->Connect( UserGuideMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnUserGuideMenuItemSelected ) );
+ 	this->Connect( OnlineHelpMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnOnlineHelpMenuItemSelected ) );
+ 	this->Connect( BeginnersTutorialMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnBeginnersTutorialMenuItemSelected ) );
+ 	this->Connect( FaqMenuItem->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnFaqMenuItemSelected ) );
+@@ -499,7 +495,6 @@
+ 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnDefaultKeyfilesMenuItemSelected ) );
+ 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnSecurityTokenPreferencesMenuItemSelected ) );
+ 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnPreferencesMenuItemSelected ) );
+-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnUserGuideMenuItemSelected ) );
+ 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnOnlineHelpMenuItemSelected ) );
+ 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnBeginnersTutorialMenuItemSelected ) );
+ 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrameBase::OnFaqMenuItemSelected ) );
+@@ -1625,7 +1620,7 @@
+ 	wxStaticBoxSizer* sbSizer14;
+ 	sbSizer14 = new wxStaticBoxSizer( new wxStaticBox( SecurityPage, wxID_ANY, _("Password Cache") ), wxVERTICAL );
+ 	
+-	WipeCacheOnCloseCheckBox = new wxCheckBox( SecurityPage, wxID_ANY, _("Wipe after TrueCrypt window has been closed"), wxDefaultPosition, wxDefaultSize, 0 );
++	WipeCacheOnCloseCheckBox = new wxCheckBox( SecurityPage, wxID_ANY, _("Wipe after RealCrypt window has been closed"), wxDefaultPosition, wxDefaultSize, 0 );
+ 	
+ 	sbSizer14->Add( WipeCacheOnCloseCheckBox, 0, wxALL, 5 );
+ 	
+@@ -1699,7 +1694,7 @@
+ 	bSizer62 = new wxBoxSizer( wxVERTICAL );
+ 	
+ 	wxStaticBoxSizer* sbSizer18;
+-	sbSizer18 = new wxStaticBoxSizer( new wxStaticBox( BackgroundTaskPanel, wxID_ANY, _("TrueCrypt Background Task") ), wxVERTICAL );
++	sbSizer18 = new wxStaticBoxSizer( new wxStaticBox( BackgroundTaskPanel, wxID_ANY, _("RealCrypt Background Task") ), wxVERTICAL );
+ 	
+ 	BackgroundTaskEnabledCheckBox = new wxCheckBox( BackgroundTaskPanel, wxID_ANY, _("Enabled"), wxDefaultPosition, wxDefaultSize, 0 );
+ 	
+@@ -1743,7 +1738,7 @@
+ 	
+ 	LogOnSizer = new wxStaticBoxSizer( new wxStaticBox( SystemIntegrationPage, wxID_ANY, _("Actions to Perform when User Logs On") ), wxVERTICAL );
+ 	
+-	StartOnLogonCheckBox = new wxCheckBox( SystemIntegrationPage, wxID_ANY, _("Start TrueCrypt Background Task"), wxDefaultPosition, wxDefaultSize, 0 );
++	StartOnLogonCheckBox = new wxCheckBox( SystemIntegrationPage, wxID_ANY, _("Start RealCrypt Background Task"), wxDefaultPosition, wxDefaultSize, 0 );
+ 	
+ 	LogOnSizer->Add( StartOnLogonCheckBox, 0, wxALL, 5 );
+ 	
+@@ -1751,7 +1746,7 @@
+ 	
+ 	LogOnSizer->Add( MountFavoritesOnLogonCheckBox, 0, wxALL, 5 );
+ 	
+-	MountDevicesOnLogonCheckBox = new wxCheckBox( SystemIntegrationPage, wxID_ANY, _("Mount all device-hosted TrueCrypt volumes"), wxDefaultPosition, wxDefaultSize, 0 );
++	MountDevicesOnLogonCheckBox = new wxCheckBox( SystemIntegrationPage, wxID_ANY, _("Mount all device-hosted RealCrypt volumes"), wxDefaultPosition, wxDefaultSize, 0 );
+ 	
+ 	LogOnSizer->Add( MountDevicesOnLogonCheckBox, 0, wxALL, 5 );
+ 	
+@@ -2503,7 +2498,7 @@
+ 	sbSizer28 = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxEmptyString ), wxVERTICAL );
+ 	
+ 	wxStaticText* m_staticText15;
+-	m_staticText15 = new wxStaticText( this, wxID_ANY, _("TrueCrypt volume to mount:"), wxDefaultPosition, wxDefaultSize, 0 );
++	m_staticText15 = new wxStaticText( this, wxID_ANY, _("RealCrypt volume to mount:"), wxDefaultPosition, wxDefaultSize, 0 );
+ 	m_staticText15->Wrap( -1 );
+ 	sbSizer28->Add( m_staticText15, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
+ 	
+--- truecrypt-6.2a-source.orig/Main/Forms/TrueCrypt.fbp	2009-06-15 06:15:04.000000000 -0400
++++ truecrypt-6.2a-source/Main/Forms/TrueCrypt.fbp	2009-07-10 13:03:47.748052981 -0400
+@@ -604,21 +604,6 @@
+                         <property name="checked">0</property>
+                         <property name="enabled">1</property>
+                         <property name="help"></property>
+-                        <property name="id">wxID_HELP</property>
+-                        <property name="kind">wxITEM_NORMAL</property>
+-                        <property name="label">User&apos;s Guide</property>
+-                        <property name="name">UserGuideMenuItem</property>
+-                        <property name="permission">none</property>
+-                        <property name="shortcut"></property>
+-                        <property name="unchecked_bitmap"></property>
+-                        <event name="OnMenuSelection">OnUserGuideMenuItemSelected</event>
+-                        <event name="OnUpdateUI"></event>
+-                    </object>
+-                    <object class="wxMenuItem" expanded="1">
+-                        <property name="bitmap"></property>
+-                        <property name="checked">0</property>
+-                        <property name="enabled">1</property>
+-                        <property name="help"></property>
+                         <property name="id">wxID_ANY</property>
+                         <property name="kind">wxITEM_NORMAL</property>
+                         <property name="label">Online Help</property>
+--- truecrypt-6.2a-source.orig/Main/Forms/MainFrame.h	2009-06-15 06:15:04.000000000 -0400
++++ truecrypt-6.2a-source/Main/Forms/MainFrame.h	2009-07-10 13:04:12.727053724 -0400
+@@ -127,7 +127,6 @@
+ 		void OnVolumeButtonClick (wxCommandEvent& event);
+ 		void OnVolumeDismounted (EventArgs &args) { UpdateVolumeList(); }
+ 		void OnVolumeMounted (EventArgs &args) { UpdateVolumeList(); }
+-		void OnUserGuideMenuItemSelected (wxCommandEvent& event) { Gui->OpenUserGuide (this); }
+ 		void OnWebsiteMenuItemSelected (wxCommandEvent& event) { Gui->OpenHomepageLink (this, L"website"); }
+ 		void OnWipeCacheButtonClick (wxCommandEvent& event);
+ 		void OrganizeFavorites (const FavoriteVolumeList &favorites, size_t newItemCount = 0);
