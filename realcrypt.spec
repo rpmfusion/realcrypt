@@ -1,7 +1,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 6.2a
-Release: 8%{?dist}
+Release: 9%{?dist}
 License: TrueCrypt License Version 2.7
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -142,6 +142,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Oct 24 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.2a-9
+- bump tag to fix cvs problem
+
 * Sun Jul 12 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.2a-8
 - replace README.txt
 - fix for help menu (link to rpmfusion wiki)
