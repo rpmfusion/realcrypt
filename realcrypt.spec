@@ -1,8 +1,10 @@
+%define _default_patch_fuzz 2
+
 Name: realcrypt
 Summary: Cross platform disk encryption software
-Version: 6.2a
-Release: 9%{?dist}
-License: TrueCrypt License Version 2.7
+Version: 6.3
+Release: 1%{?dist}
+License: TrueCrypt License Version 2.8
 Group: Applications/File
 URL: http://www.truecrypt.org/
 # command to generate tarball without spaces in name
@@ -32,7 +34,7 @@ Source20:	TrueCrypt-16x16_real.xpm.lzma
 Source21:	realcrypt_64.png.lzma
 Source22:	Textual_logo_background_real.bmp.lzma
 Patch1:	realcrypt-rpm_opt_flags.patch
-Patch2: realcrypt-6.2a-rebranding.patch
+Patch2: realcrypt-%{version}-rebranding.patch
 Patch3: realcrypt-no-userguide-menuitem.patch
 Patch4: realcrypt-Makefile.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -66,7 +68,7 @@ Main Features:
 rm -f ./Readme.txt
 cp %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE7} .
 %patch1 -p1 -b .realcrypt-rpm_opt_flags
-%patch2 -p1 -b .realcrypt-6.2a-rebranding
+%patch2 -p1 -b .realcrypt-%{version}-rebranding
 %patch3 -p1 -b .realcrypt-no-userguide-menuitem
 %patch4 -p1 -b .realcrypt-Makefile
 
@@ -142,8 +144,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Oct 24 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.2a-9
-- bump tag to fix cvs problem
+* Sat Oct 31 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.3-1
+- update to 6.3 and fix rebranding patches
 
 * Sun Jul 12 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.2a-8
 - replace README.txt

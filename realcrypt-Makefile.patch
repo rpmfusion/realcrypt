@@ -1,5 +1,5 @@
---- truecrypt-6.2a-source.orig/Makefile 
-+++ truecrypt-6.2a-source/Makefile 
+--- truecrypt-6.3-source.orig/Makefile 
++++ truecrypt-6.3-source/Makefile 
 @@ -24,7 +24,7 @@
  
  #------ Build configuration ------
@@ -9,4 +9,3 @@
  export BASE_DIR := $(CURDIR)
  export BUILD_INC := $(BASE_DIR)/Build/Include
  
-
