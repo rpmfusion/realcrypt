@@ -1,5 +1,5 @@
---- truecrypt-6.3-source/Common/Language.xml
-+++ truecrypt-6.3-source/Common/Language.xml.new
+--- truecrypt-6.3-source.orig/Common/Language.xml
++++ truecrypt-6.3-source/Common/Language.xml
 @@ -12,20 +12,20 @@
      <control lang="en" key="IDCANCEL">Cancel</control>
      <control lang="en" key="IDC_ALL_USERS">Install &amp;for all users</control>
@@ -1071,8 +1071,8 @@
      <string lang="en" key="TEST">Test</string>
      <string lang="en" key="KEYFILE">Keyfile</string>
      <string lang="en" key="VOLUME_LABEL">Name</string>
---- truecrypt-6.3-source/Core/Unix/Linux/CoreLinux.cpp
-+++ truecrypt-6.3-source/Core/Unix/Linux/CoreLinux.cpp.new
+--- truecrypt-6.3-source.orig/Core/Unix/Linux/CoreLinux.cpp
++++ truecrypt-6.3-source/Core/Unix/Linux/CoreLinux.cpp
 @@ -113,7 +113,7 @@
  	{
  		string devPath = mountedVolume->VirtualDevice;
@@ -1091,8 +1091,8 @@
  				
  				if (nativeDevCount != cipherCount - 1)
  					nativeDevName << "_" << cipherCount - nativeDevCount - 2;
---- truecrypt-6.3-source/Core/Unix/CoreUnix.cpp 
-+++ truecrypt-6.3-source/Core/Unix/CoreUnix.cpp.new 
+--- truecrypt-6.3-source.orig/Core/Unix/CoreUnix.cpp 
++++ truecrypt-6.3-source/Core/Unix/CoreUnix.cpp
 @@ -205,17 +205,17 @@
  
  	string CoreUnix::GetDefaultMountPointPrefix () const
@@ -1115,8 +1115,8 @@
  	}
  
  	uint64 CoreUnix::GetDeviceSize (const DevicePath &devicePath) const
---- truecrypt-6.3-source/Main/UserInterface.cpp
-+++ truecrypt-6.3-source/Main/UserInterface.cpp.new
+--- truecrypt-6.3-source.orig/Main/UserInterface.cpp
++++ truecrypt-6.3-source/Main/UserInterface.cpp
 @@ -50,7 +50,7 @@
  			vector <int> osVersion = SystemInfo::GetVersion();
  
@@ -1222,8 +1222,8 @@
  
  					wxTextCtrl *textCtrl = new wxTextCtrl (&dialog, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE | wxTE_READONLY);
  					textCtrl->SetFont (wxFont (wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, L"Courier"));
---- truecrypt-6.3-source/Main/Forms/VolumePropertiesDialog.cpp
-+++ truecrypt-6.3-source/Main/Forms/VolumePropertiesDialog.cpp.new
+--- truecrypt-6.3-source.orig/Main/Forms/VolumePropertiesDialog.cpp
++++ truecrypt-6.3-source/Main/Forms/VolumePropertiesDialog.cpp
 @@ -69,7 +69,7 @@
  		AppendToList ("BACKUP_HEADER", LangString[volumeInfo.MinRequiredProgramVersion >= 0x600 ? "UISTR_YES" : "UISTR_NO"]);
  
@@ -1233,8 +1233,8 @@
  		{
  #endif
  		AppendToList ("TOTAL_DATA_READ", Gui->SizeToString (volumeInfo.TotalDataRead));
---- truecrypt-6.3-source/Main/Forms/VolumeCreationWizard.cpp
-+++ truecrypt-6.3-source/Main/Forms/VolumeCreationWizard.cpp.new
+--- truecrypt-6.3-source.orig/Main/Forms/VolumeCreationWizard.cpp
++++ truecrypt-6.3-source/Main/Forms/VolumeCreationWizard.cpp
 @@ -151,7 +151,7 @@
  				else if (SelectedVolumeType == VolumeType::Hidden)
  				{
@@ -1244,8 +1244,8 @@
  					freeSpaceText = StringFormatter (_("Maximum possible hidden volume size for this volume is {0}."), Gui->SizeToString (MaxHiddenVolumeSize));
  				}
  				else
---- truecrypt-6.3-source/Main/Application.h
-+++ truecrypt-6.3-source/Main/Application.h.new
+--- truecrypt-6.3-source.orig/Main/Application.h
++++ truecrypt-6.3-source/Main/Application.h
 @@ -24,7 +24,7 @@
  		static DirectoryPath GetExecutableDirectory ();
  		static FilePath GetExecutablePath ();
@@ -1255,8 +1255,8 @@
  		static UserInterface *GetUserInterface () { return mUserInterface; }
  		static UserInterfaceType::Enum GetUserInterfaceType () { return mUserInterfaceType; }
  		static void Initialize (UserInterfaceType::Enum type);
---- truecrypt-6.3-source/Common/Tcdefs.h
-+++ truecrypt-6.3-source/Common/Tcdefs.h.new
+--- truecrypt-6.3-source.orig/Common/Tcdefs.h
++++ truecrypt-6.3-source/Common/Tcdefs.h
 @@ -12,7 +12,7 @@
  #ifndef TCDEFS_H
  #define TCDEFS_H
@@ -1277,8 +1277,8 @@
  
  enum
  {
---- truecrypt-6.3-source/Main/Forms/AboutDialog.cpp
-+++ truecrypt-6.3-source/Main/Forms/AboutDialog.cpp.new
+--- truecrypt-6.3-source.orig/Main/Forms/AboutDialog.cpp
++++ truecrypt-6.3-source/Main/Forms/AboutDialog.cpp
 @@ -20,8 +20,8 @@
  		LogoBitmap->SetBitmap (Resources::GetTextualLogoBitmap());
  
@@ -1298,8 +1298,8 @@
 +			L"A RPMfusion Release");
  	}
  }
---- truecrypt-6.2a-source/Main/GraphicUserInterface.cpp	2008-07-04 11:52:18.000000000 -0700
-+++ truecrypt-6.2a-source/Main/GraphicUserInterface.cpp.new	2008-08-05 20:05:06.000000000 -0700
+--- truecrypt-6.2a-source.orig/Main/GraphicUserInterface.cpp
++++ truecrypt-6.2a-source/Main/GraphicUserInterface.cpp
 @@ -823,7 +823,7 @@
  #endif
  				wxLog::FlushActive();
@@ -1377,3 +1377,24 @@
  #else
  #	error TC_RESOURCE_DIR undefined
  #endif
+--- truecrypt-6.3-source.orig/Core/Unix/CoreService.cpp
++++ truecrypt-6.3-source/Core/Unix/CoreService.cpp
+@@ -341,7 +341,7 @@ namespace TrueCrypt
+ 
+ 					string appPath = request.ApplicationExecutablePath;
+ 					if (appPath.empty())
+-						appPath = "truecrypt";
++						appPath = "realcrypt";
+ 
+ 					const char *args[] = { "sudo", "-S", "-p", "", appPath.c_str(), TC_CORE_SERVICE_CMDLINE_OPTION, nullptr };
+ 					execvp (args[0], ((char* const*) args));--- truecrypt-6.3-source.orig/Core/Unix/CoreUnix.h
++++ truecrypt-6.3-source/Core/Unix/CoreUnix.h
+@@ -50,7 +50,7 @@ namespace TrueCrypt
+ 		virtual void DismountNativeVolume (shared_ptr <VolumeInfo> mountedVolume) const { throw NotApplicable (SRC_POS); }
+ 		virtual bool FilesystemSupportsUnixPermissions (const DevicePath &devicePath) const;
+ 		virtual string GetDefaultMountPointPrefix () const;
+-		virtual string GetFuseMountDirPrefix () const { return ".truecrypt_aux_mnt"; }
++		virtual string GetFuseMountDirPrefix () const { return ".realcrypt_aux_mnt"; }
+ 		virtual MountedFilesystemList GetMountedFilesystems (const DevicePath &devicePath = DevicePath(), const DirectoryPath &mountPoint = DirectoryPath()) const = 0;
+ 		virtual uid_t GetRealUserId () const;
+ 		virtual gid_t GetRealGroupId () const;
