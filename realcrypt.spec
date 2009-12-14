@@ -144,8 +144,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Nov 21 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.3-3
-- rebuild
+* Mon Dec 14 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.3-3
+- rebuilt
 
 * Fri Nov 20 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.3-2
 - fix rebranding patch
