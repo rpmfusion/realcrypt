@@ -1,4 +1,4 @@
-%define _default_patch_fuzz 2
+#define _default_patch_fuzz 2
 
 Name: realcrypt
 Summary: Cross platform disk encryption software

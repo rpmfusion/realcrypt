@@ -1,5 +1,6 @@
---- truecrypt-6.3-source.orig/Makefile 
-+++ truecrypt-6.3-source/Makefile 
+diff -Naur truecrypt-6.3a-source.orig//Makefile truecrypt-6.3a-source/Makefile
+--- truecrypt-6.3a-source.orig//Makefile	2010-02-08 21:42:29.000000000 +0100
++++ truecrypt-6.3a-source/Makefile	2010-02-08 21:50:51.000000000 +0100
 @@ -24,7 +24,7 @@
  
  #------ Build configuration ------
