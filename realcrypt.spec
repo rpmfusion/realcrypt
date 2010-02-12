@@ -1,9 +1,9 @@
-%define _default_patch_fuzz 2
+#define _default_patch_fuzz 2
 
 Name: realcrypt
 Summary: Cross platform disk encryption software
-Version: 6.3
-Release: 2%{?dist}
+Version: 6.3a
+Release: 1%{?dist}
 License: TrueCrypt License Version 2.8
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -35,8 +35,8 @@ Source21:	realcrypt_64.png.lzma
 Source22:	Textual_logo_background_real.bmp.lzma
 Patch1:	realcrypt-rpm_opt_flags.patch
 Patch2: realcrypt-%{version}-rebranding.patch
-Patch3: realcrypt-no-userguide-menuitem.patch
-Patch4: realcrypt-Makefile.patch
+#Patch3: realcrypt-no-userguide-menuitem.patch
+#Patch4: realcrypt-Makefile.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: fuse, pam, usermode, wxGTK >= 2.8.0
 BuildRequires: fuse-devel, wxGTK-devel >= 2.8.0
@@ -69,8 +69,8 @@ rm -f ./Readme.txt
 cp %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE7} .
 %patch1 -p1 -b .realcrypt-rpm_opt_flags
 %patch2 -p1 -b .realcrypt-%{version}-rebranding
-%patch3 -p1 -b .realcrypt-no-userguide-menuitem
-%patch4 -p1 -b .realcrypt-Makefile
+#patch3 -p1 -b .realcrypt-no-userguide-menuitem
+#patch4 -p1 -b .realcrypt-Makefile
 
 # Replace graphics which include the TrueCrypt logo
 rm -f `find -name *.bmp`
@@ -144,6 +144,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Feb 12 2010 leigh scott <leigh123linux@googlemail.com> - 6.3a-1
+- update to 6.3a
+- combined rebranding patch (by Axel Köllhofer)
+- fix rebranding patch so truecrypt name isn't displayed by "mount -l"
+
 * Fri Nov 20 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.3-2
 - fix rebranding patch
 
