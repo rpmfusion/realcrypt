@@ -1152,6 +1152,28 @@ diff -Naur truecrypt-6.3a-source.orig//Core/Unix/CoreUnix.cpp truecrypt-6.3a-sou
  	}
  
  	uint64 CoreUnix::GetDeviceSize (const DevicePath &devicePath) const
+--- truecrypt-6.3a-source.orig/Core/Unix/CoreUnix.h	2009-11-22 15:09:54.000000000 +0000
++++ truecrypt-6.3a-source/Core/Unix/CoreUnix.h	2010-02-12 13:05:48.000000000 +0000
+@@ -50,7 +50,7 @@ namespace TrueCrypt
+ 		virtual void DismountNativeVolume (shared_ptr <VolumeInfo> mountedVolume) const { throw NotApplicable (SRC_POS); }
+ 		virtual bool FilesystemSupportsUnixPermissions (const DevicePath &devicePath) const;
+ 		virtual string GetDefaultMountPointPrefix () const;
+-		virtual string GetFuseMountDirPrefix () const { return ".truecrypt_aux_mnt"; }
++		virtual string GetFuseMountDirPrefix () const { return ".realcrypt_aux_mnt"; }
+ 		virtual MountedFilesystemList GetMountedFilesystems (const DevicePath &devicePath = DevicePath(), const DirectoryPath &mountPoint = DirectoryPath()) const = 0;
+ 		virtual uid_t GetRealUserId () const;
+ 		virtual gid_t GetRealGroupId () const;
+--- truecrypt-6.3a-source.orig/Driver/Fuse/FuseService.h	2010-02-12 13:34:11.000000000 +0000
++++ truecrypt-6.3a-source/Driver/Fuse/FuseService.h	2010-02-12 13:41:28.000000000 +0000
+@@ -43,7 +43,7 @@ namespace TrueCrypt
+ 		static int ExceptionToErrorCode ();
+ 		static const char *GetControlPath () { return "/control"; }
+ 		static const char *GetVolumeImagePath ();
+-		static string GetDeviceType () { return "truecrypt"; }
++		static string GetDeviceType () { return "realcrypt"; }
+ 		static uid_t GetGroupId () { return GroupId; }
+ 		static uid_t GetUserId () { return UserId; }
+ 		static shared_ptr <Buffer> GetVolumeInfo ();
 diff -Naur truecrypt-6.3a-source.orig//Core/Unix/Linux/CoreLinux.cpp truecrypt-6.3a-source/Core/Unix/Linux/CoreLinux.cpp
 --- truecrypt-6.3a-source.orig//Core/Unix/Linux/CoreLinux.cpp	2010-02-08 21:42:29.000000000 +0100
 +++ truecrypt-6.3a-source/Core/Unix/Linux/CoreLinux.cpp	2010-02-08 21:50:51.000000000 +0100

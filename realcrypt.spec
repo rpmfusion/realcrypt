@@ -3,7 +3,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 6.3a
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: TrueCrypt License Version 2.8
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -144,6 +144,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Feb 12 2010 leigh scott <leigh123linux@googlemail.com> - 6.3a-2
+- fix rebranding patch so truecrypt name isn't displayed by "mount -l" 
+
 * Fri Feb 12 2010 leigh scott <leigh123linux@googlemail.com> - 6.3a-1
 - update to 6.3a
 - combined rebranding patch (by Axel Köllhofer)
