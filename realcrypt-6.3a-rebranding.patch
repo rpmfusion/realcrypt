@@ -1502,6 +1502,17 @@ diff -Naur truecrypt-6.3a-source.orig//Main/Forms/VolumePropertiesDialog.cpp tru
  		{
  #endif
  		AppendToList ("TOTAL_DATA_READ", Gui->SizeToString (volumeInfo.TotalDataRead));
+--- truecrypt-6.3a-source.orig/Main/CommandLineInterface.cpp	2009-11-22 15:10:00.000000000 +0000
++++ truecrypt-6.3a-source/Main/CommandLineInterface.cpp	2010-02-15 18:55:13.000000000 +0000
+@@ -54,7 +54,7 @@ namespace TrueCrypt
+ 		parser.AddSwitch (L"",	L"list-token-keyfiles",	_("List security token keyfiles"));
+ 		parser.AddSwitch (L"",	L"load-preferences",	_("Load user preferences"));
+ 		parser.AddSwitch (L"",	L"mount",				_("Mount volume interactively"));
+-		parser.AddOption (L"m", L"mount-options",		_("TrueCrypt volume mount options"));
++		parser.AddOption (L"m", L"mount-options",		_("RealCrypt volume mount options"));
+ 		parser.AddOption (L"",	L"new-keyfiles",		_("New keyfiles"));
+ 		parser.AddOption (L"",	L"new-password",		_("New password"));
+ 		parser.AddSwitch (L"",	L"non-interactive",		_("Do not interact with user"));
 diff -Naur truecrypt-6.3a-source.orig//Main/GraphicUserInterface.cpp truecrypt-6.3a-source/Main/GraphicUserInterface.cpp
 --- truecrypt-6.3a-source.orig//Main/GraphicUserInterface.cpp	2010-02-08 21:42:29.000000000 +0100
 +++ truecrypt-6.3a-source/Main/GraphicUserInterface.cpp	2010-02-08 21:50:51.000000000 +0100

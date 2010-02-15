@@ -148,6 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 - update to 6.3a
 - combined rebranding patch (by Axel Köllhofer)
 - fix rebranding patch so truecrypt name isn't displayed by "mount -l"
+- fix rebranding patch so truecrypt name isn't displayed in cmdline
 
 * Fri Nov 20 2009 Leigh Scott <leigh123linux@googlemail.com> - 6.3-2
 - fix rebranding patch
