@@ -3,7 +3,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 6.3a
-Release: 3%{?dist}
+Release: 4%{?dist}
 License: TrueCrypt License Version 2.8
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -40,7 +40,7 @@ Patch2: realcrypt-%{version}-rebranding.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: fuse, pam, usermode, wxGTK >= 2.8.0
 BuildRequires: fuse-devel, wxGTK-devel >= 2.8.0
-BuildRequires: desktop-file-utils, ImageMagick
+BuildRequires: desktop-file-utils, ImageMagick, xz-lzma-compat
 
 %description
 Based on TrueCrypt, freely available at http://www.truecrypt.org/.
@@ -144,6 +144,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Mar 27 2010 Leigh Scott <leigh123linux@googlemail.com> - 6.3a-4
+- add Br xz-lzma-compat
+
 * Mon Feb 15 2010 Leigh Scott <leigh123linux@googlemail.com> - 6.3a-3
 - fix rebranding patch so truecrypt name isn't displayed in cmdline
 
