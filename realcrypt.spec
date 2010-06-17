@@ -3,7 +3,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 6.3a
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: TrueCrypt License Version 2.8
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -144,6 +144,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Jun 17 2010 Leigh Scott <leigh123linux@googlemail.com> - 6.3a-5
+- Rebuild for F14
+
 * Sat Mar 27 2010 Leigh Scott <leigh123linux@googlemail.com> - 6.3a-4
 - add Br xz-lzma-compat
 
