@@ -39,7 +39,7 @@ Patch2: realcrypt-%{version}-rebranding.patch
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: fuse, pam, usermode, wxGTK >= 2.8.0
 BuildRequires: fuse-devel, wxGTK-devel >= 2.8.0
-BuildRequires: desktop-file-utils, ImageMagick, xz-lzma-compat
+BuildRequires: desktop-file-utils, ImageMagick, xz-lzma-compat, nasm
 
 %description
 Based on TrueCrypt, freely available at http://www.truecrypt.org/.
@@ -145,6 +145,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Wed Dec 15 2010 leigh scott <leigh123linux@googlemail.com> - 7.0a-1
 - update to 7.0a
+- add Br nasm
 
 * Thu Jun 17 2010 Leigh Scott <leigh123linux@googlemail.com> - 6.3a-5
 - Rebuild for F14
