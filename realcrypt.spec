@@ -2,8 +2,8 @@
 
 Name: realcrypt
 Summary: Cross platform disk encryption software
-Version: 6.3a
-Release: 5%{?dist}
+Version: 7.0a
+Release: 1%{?dist}
 License: TrueCrypt License Version 2.8
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -35,8 +35,7 @@ Source21:	realcrypt_64.png.lzma
 Source22:	Textual_logo_background_real.bmp.lzma
 Patch1:	realcrypt-rpm_opt_flags.patch
 Patch2: realcrypt-%{version}-rebranding.patch
-#Patch3: realcrypt-no-userguide-menuitem.patch
-#Patch4: realcrypt-Makefile.patch
+
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: fuse, pam, usermode, wxGTK >= 2.8.0
 BuildRequires: fuse-devel, wxGTK-devel >= 2.8.0
@@ -69,8 +68,7 @@ rm -f ./Readme.txt
 cp %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE7} .
 %patch1 -p1 -b .realcrypt-rpm_opt_flags
 %patch2 -p1 -b .realcrypt-%{version}-rebranding
-#patch3 -p1 -b .realcrypt-no-userguide-menuitem
-#patch4 -p1 -b .realcrypt-Makefile
+
 
 # Replace graphics which include the TrueCrypt logo
 rm -f `find -name *.bmp`
@@ -90,7 +88,8 @@ lzcat %{SOURCE19} > ./Mount/System_drive_icon_mask_96dpi.bmp
 lzcat %{SOURCE20} > ./Resources/Icons/TrueCrypt-16x16.xpm
 
 %build
-sed -i -e 's,TrueCrypt,RealCrypt,g' Main/Forms/Forms.cpp Main/Forms/Forms.h Main/LanguageStrings.cpp
+sed -i 579,+14d Main/Forms/TrueCrypt.fbp
+sed -i -e 's,TrueCrypt,RealCrypt,g' Main/Forms/Forms.cpp Main/Forms/Forms.h Main/LanguageStrings.cpp Main/Forms/TrueCrypt.fbp
 sed -i -e 's,namespace RealCrypt,namespace TrueCrypt,g' Main/Forms/Forms.cpp Main/Forms/Forms.h Main/LanguageStrings.cpp
 
 make \
@@ -144,6 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Dec 15 2010 leigh scott <leigh123linux@googlemail.com> - 7.0a-1
+- update to 7.0a
+
 * Thu Jun 17 2010 Leigh Scott <leigh123linux@googlemail.com> - 6.3a-5
 - Rebuild for F14
 
