@@ -88,7 +88,8 @@ lzcat %{SOURCE19} > ./Mount/System_drive_icon_mask_96dpi.bmp
 lzcat %{SOURCE20} > ./Resources/Icons/TrueCrypt-16x16.xpm
 
 %build
-sed -i -e 's,TrueCrypt,RealCrypt,g' Main/Forms/Forms.cpp Main/Forms/Forms.h Main/LanguageStrings.cpp
+sed -i 579,+14d Main/Forms/TrueCrypt.fbp
+sed -i -e 's,TrueCrypt,RealCrypt,g' Main/Forms/Forms.cpp Main/Forms/Forms.h Main/LanguageStrings.cpp Main/Forms/TrueCrypt.fbp
 sed -i -e 's,namespace RealCrypt,namespace TrueCrypt,g' Main/Forms/Forms.cpp Main/Forms/Forms.h Main/LanguageStrings.cpp
 
 make \
