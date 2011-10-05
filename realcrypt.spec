@@ -2,9 +2,9 @@
 
 Name: realcrypt
 Summary: Cross platform disk encryption software
-Version: 7.0a
+Version: 7.1
 Release: 1%{?dist}
-License: TrueCrypt License Version 2.8
+License: TrueCrypt License Version 3.0
 Group: Applications/File
 URL: http://www.truecrypt.org/
 # command to generate tarball without spaces in name
@@ -143,6 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Oct 01 2011 leigh scott <leigh123linux@googlemail.com> - 7.1-1
+- update to 7.1
+
 * Wed Dec 15 2010 leigh scott <leigh123linux@googlemail.com> - 7.0a-1
 - update to 7.0a
 - add Br nasm
