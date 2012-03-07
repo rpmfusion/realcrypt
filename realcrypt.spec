@@ -3,7 +3,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 7.1
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: TrueCrypt License Version 3.0
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -143,6 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Mar 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 7.1-3
+- Rebuilt for c++ ABI breakage
+
 * Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 7.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
