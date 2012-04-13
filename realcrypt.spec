@@ -1,8 +1,9 @@
 #define _default_patch_fuzz 2
+%define _hardened_build 1
 
 Name: realcrypt
 Summary: Cross platform disk encryption software
-Version: 7.1
+Version: 7.1a
 Release: 1%{?dist}
 License: TrueCrypt License Version 3.0
 Group: Applications/File
@@ -35,6 +36,7 @@ Source21:	realcrypt_64.png.lzma
 Source22:	Textual_logo_background_real.bmp.lzma
 Patch1:	realcrypt-rpm_opt_flags.patch
 Patch2: realcrypt-%{version}-rebranding.patch
+Patch3: noexecstack.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: fuse, pam, usermode, wxGTK >= 2.8.0
@@ -68,6 +70,7 @@ rm -f ./Readme.txt
 cp %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE7} .
 %patch1 -p1 -b .realcrypt-rpm_opt_flags
 %patch2 -p1 -b .realcrypt-%{version}-rebranding
+%patch3 -p1 -b .noexecstack
 
 
 # Replace graphics which include the TrueCrypt logo
@@ -143,6 +146,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Apr 13 2012 leigh scott <leigh123linux@googlemail.com> - 7.1a-1
+- update to 7.1a
+- harden build
+
 * Sat Oct 01 2011 leigh scott <leigh123linux@googlemail.com> - 7.1-1
 - update to 7.1
 
