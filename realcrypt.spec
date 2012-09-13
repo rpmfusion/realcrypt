@@ -4,7 +4,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 7.1a
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: TrueCrypt License Version 3.0
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -146,6 +146,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Sep 13 2012 Leigh Scott <leigh123linux@googlemail.com> - 7.1a-2
+- rebuilt
+
 * Fri Apr 13 2012 leigh scott <leigh123linux@googlemail.com> - 7.1a-1
 - update to 7.1a
 - harden build
