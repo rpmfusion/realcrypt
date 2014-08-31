@@ -4,7 +4,7 @@
 Name: realcrypt
 Summary: Cross platform disk encryption software
 Version: 7.1a
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: TrueCrypt License Version 3.0
 Group: Applications/File
 URL: http://www.truecrypt.org/
@@ -146,6 +146,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 7.1a-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Thu Sep 13 2012 Leigh Scott <leigh123linux@googlemail.com> - 7.1a-2
 - add DSO fix to the noexecstack.patch
 
